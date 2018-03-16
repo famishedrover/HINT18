@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.architgoyal.hint18">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +23,11 @@
         <activity android:name=".wordsPacksActivity" />
         <activity android:name=".alphaCanvasActivity" />
         <activity android:name=".wordsCanvasActivity" />
-        <activity android:name=".scanActivity"></activity>
+        <activity android:name=".scanActivity" />
+        <activity android:name=".readActivity"></activity>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
     </application>
 
 </manifest>

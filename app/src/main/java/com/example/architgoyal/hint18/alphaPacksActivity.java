@@ -9,5 +9,6 @@ public class alphaPacksActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alpha_packs);
+        getSupportActionBar().setTitle("Choose Packs");
     }
 }
