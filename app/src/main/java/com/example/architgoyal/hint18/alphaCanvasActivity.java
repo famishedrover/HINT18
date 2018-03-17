@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -44,10 +45,11 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
         Button redraw=(Button)findViewById(R.id.redraw);
         final Button next=(Button)findViewById(R.id.next);
 
-
-        CharacterList.list=new ArrayList<String>();
-        CharacterList.setList();
-        alp_image.setText(CharacterList.list.get(i++));
+        if(CharacterList.list==null){
+            CharacterList.list=new ArrayList<Pair<String, String>>();
+            CharacterList.setList();
+        }
+        alp_image.setText(CharacterList.list.get(i++).first);
         speakOut();
         //CharacterList.list.remove(0);
 
@@ -94,7 +96,7 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
 
                 if(i!=CharacterList.list.size()){
                     alp_image.setText("");
-                    alp_image.setText(CharacterList.list.get(i++));
+                    alp_image.setText(CharacterList.list.get(i++).first);
                     speakOut();}
                 else{
                     startActivity(new Intent(alphaCanvasActivity.this,MainActivity.class));

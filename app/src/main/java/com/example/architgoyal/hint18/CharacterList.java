@@ -1,5 +1,7 @@
 package com.example.architgoyal.hint18;
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 
 /**
@@ -7,13 +9,13 @@ import java.util.ArrayList;
  */
 
 public class CharacterList {
-    public static ArrayList<String> list;
+    public static ArrayList<Pair<String,String>> list;
 
     public static void setList(){
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
-        list.add("E");
+        list.add(Pair.create("A","0"));
+        list.add(Pair.create("B","0"));
+        list.add(Pair.create("C","0"));
+        list.add(Pair.create("D","0"));
+        list.add(Pair.create("E","0"));
     }
 }
