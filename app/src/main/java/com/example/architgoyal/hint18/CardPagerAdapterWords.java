@@ -1,8 +1,5 @@
 package com.example.architgoyal.hint18;
 
-/**
- * Created by architgoyal on 17/03/18.
- */
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
@@ -10,16 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
+/**
+ * Created by architgoyal on 17/03/18.
+ */
+
+public class CardPagerAdapterWords extends PagerAdapter implements CardAdapter {
 
     private List<CardView> mViews;
     private List<CardItem> mData;
     private float mBaseElevation;
 
-    public CardPagerAdapter() {
+    public CardPagerAdapterWords() {
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
     }
@@ -65,11 +67,11 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
             @Override
             public void onClick(View v) {
                 if(position==0){
-                    Intent intent=new Intent(container.getContext(),alphaCanvasActivity.class);
+                    Intent intent=new Intent(container.getContext(),wordsCanvasActivity.class);
                     container.getContext().startActivity(intent);
                 }
                 else if(position==1){
-                    Intent intent=new Intent(container.getContext(),alphaCanvasActivity.class);
+                    Intent intent=new Intent(container.getContext(),wordsCanvasActivity.class);
                     container.getContext().startActivity(intent);
                 }
             }
@@ -88,5 +90,4 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         TextView packs = (TextView) view.findViewById(R.id.pack);
         packs.setText(item.getPack());
     }
-
 }

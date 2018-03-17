@@ -1,13 +1,15 @@
 package com.example.architgoyal.hint18;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class wordsPacksActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
-    private CardPagerAdapter mCardAdapter;
+    private CardPagerAdapterWords mCardAdapter;
     private ShadowTransformer mCardShadowTransformer;
 
     @Override
@@ -17,7 +19,7 @@ public class wordsPacksActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Choose Packs");
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter = new CardPagerAdapterWords();
         mCardAdapter.addCardItem(new CardItem("Pack of 5"));
         mCardAdapter.addCardItem(new CardItem("Pack of 10"));
         mCardAdapter.addCardItem(new CardItem("Pack of 15"));
