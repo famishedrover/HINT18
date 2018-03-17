@@ -1,0 +1,54 @@
+def f1(x):
+	return x.A
+def f2(x):
+	return x.B
+def f3(x):
+	return x.C
+def f4(x):
+	return x.D
+def f5(x):
+	return x.E
+def f6(x):
+	return x.F
+def f7(x):
+	return x.G
+def f8(x):
+	return x.H
+def f9(x):
+	return x.I
+def f10(x):
+	return x.J
+def f11(x):
+	return x.K
+def f12(x):
+	return x.L
+def f13(x):
+	return x.M
+def f14(x):
+	return x.N
+def f15(x):
+	return x.O
+def f16(x):
+	return x.P
+def f17(x):
+	return x.Q
+def f18(x):
+	return x.R
+def f19(x):
+	return x.S
+def f20(x):
+	return x.T
+def f21(x):
+	return x.U
+def f22(x):
+	return x.V
+def f23(x):
+	return x.W
+def f24(x):
+	return x.X
+def f25(x):
+	return x.Y
+def f26(x):
+	return x.Z
+
+	
