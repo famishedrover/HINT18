@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.architgoyal.hint18.readActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:id="@+id/text_view"
+        android:text="Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets."/>
+
 </android.support.constraint.ConstraintLayout>

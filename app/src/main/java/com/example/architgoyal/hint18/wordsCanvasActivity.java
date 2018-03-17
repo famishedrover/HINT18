@@ -17,6 +17,7 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
@@ -44,6 +45,11 @@ public class wordsCanvasActivity extends AppCompatActivity implements TextToSpee
         image_name=(TextView)findViewById(R.id.text);
         //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams((int)(width-width%28),(int)(width-width%28));
         //draw_area.setLayoutParams(lp);
+        ImageList.apple=new ArrayList<Integer>();
+        ImageList.mango=new ArrayList<Integer>();
+        ImageList.dog=new ArrayList<Integer>();
+        ImageList.cat=new ArrayList<Integer>();
+        ImageList.house=new ArrayList<Integer>();
         ImageList.set();
         Button redraw=(Button)findViewById(R.id.redraw);
         final Button next=(Button)findViewById(R.id.next);

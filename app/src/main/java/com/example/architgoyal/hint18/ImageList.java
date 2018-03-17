@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class ImageList {
     public static ArrayList<Pair<String,ArrayList<Integer>>> textimage=new ArrayList<Pair<String,ArrayList<Integer>>>();
-    public static ArrayList<Integer> apple=new ArrayList<Integer>();
-    public static ArrayList<Integer> mango=new ArrayList<Integer>();
-    public static ArrayList<Integer> dog=new ArrayList<Integer>();
-    public static ArrayList<Integer> cat=new ArrayList<Integer>();
-    public static ArrayList<Integer> house=new ArrayList<Integer>();
+    public static ArrayList<Integer> apple;
+    public static ArrayList<Integer> mango;
+    public static ArrayList<Integer> dog;
+    public static ArrayList<Integer> cat;
+    public static ArrayList<Integer> house;
     public static void set(){
         apple.add(R.drawable.apple1);
         apple.add(R.drawable.apple2);
@@ -30,11 +30,11 @@ public class ImageList {
         dog.add(R.drawable.dog1);
         dog.add(R.drawable.dog2);
         dog.add(R.drawable.dog3);
-        textimage.add(Pair.create("Dog",dog));
-        textimage.add(Pair.create("Cat",cat));
-        textimage.add(Pair.create("Apple",apple));
-        textimage.add(Pair.create("House",house));
-        textimage.add(Pair.create("Mango",mango));
+        textimage.add(Pair.create("DOG",dog));
+        textimage.add(Pair.create("CAT",cat));
+        textimage.add(Pair.create("APPLE",apple));
+        textimage.add(Pair.create("HOUSE",house));
+        textimage.add(Pair.create("MANGO",mango));
 
     }
 }
