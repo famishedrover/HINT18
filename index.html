@@ -2,6 +2,13 @@
 <html>
 <head>
   <title>Dashboard</title>
+  <style type="text/css">
+    
+    .card-body{
+      background-color: whitesmoke ; 
+    }
+
+  </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -165,8 +172,10 @@ margin-bottom: 7%;"><h1>Comparison between letters </h1></div>
   <div id="vis" style="margin-top: 7% ;"><h1>Weekest Alphabets for each student : </h1></div>
   <div id="graph" style=" width:900px;
   height:80vh;
-  margin:auto;"></div>
-
+  width: 150vh ;
+  margin:auto;
+  background-color: gold ; "></div>
+  <div style="margin-bottom: 20% ; "> </div>
       </main>
   </div>
 </div>
@@ -385,13 +394,15 @@ L.marker([20, 70]).addTo(map)
 },
 {
   id: 10,
-  shape: 'circle',
-  label: 'SBI MultiCap Fund'
+  shape: 'image',
+  image: 'https://scontent-bom1-1.xx.fbcdn.net/v/t31.0-8/16665520_401224490214666_8639554486083326830_o.jpg?oh=ac5cdb5c14f2fc4e6030ddec6e05f660&oe=5B356477' , 
+  label: 'Archit'
 },
 {
   id: 11,
-  shape: 'circle' ,
-  label: 'SBI Contra-Fund'
+  shape: 'image' ,
+  image: 'https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/11921684_953925774645463_9096504130167553703_n.jpg?oh=b67e5469248f91c2901ce57bb8594d95&oe=5B01400C' , 
+  label: 'Mudit'
 },
 {
   id: 12,
@@ -415,8 +426,9 @@ L.marker([20, 70]).addTo(map)
 },
 {
   id: 16,
-  shape: 'circle',
-  label: 'SBI Global Fund'
+  shape: 'image',
+  image: 'https://scontent-bom1-1.xx.fbcdn.net/v/t31.0-1/c379.0.1290.1290/10506738_10150004552801856_220367501106153455_o.jpg?oh=f7c0ec89b50be35f0181fa9eefc8b593&oe=5B44D17C' , 
+  label: 'Pradyumna'
 },
 {
   id: 17,
