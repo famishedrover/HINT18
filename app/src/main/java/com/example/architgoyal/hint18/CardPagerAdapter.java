@@ -3,21 +3,45 @@ package com.example.architgoyal.hint18;
 /**
  * Created by architgoyal on 17/03/18.
  */
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
     private List<CardView> mViews;
     private List<CardItem> mData;
     private float mBaseElevation;
+    private String Url=Domain.ip+"/webhook/letter";
 
     public CardPagerAdapter() {
         mData = new ArrayList<>();
@@ -65,12 +89,11 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
             @Override
             public void onClick(View v) {
                 if(position==0){
-                    Intent intent=new Intent(container.getContext(),alphaCanvasActivity.class);
-                    container.getContext().startActivity(intent);
+                    container.getContext().startActivity(new Intent(container.getContext(),alphaCanvasActivity.class));
+                    //getPack(container.getContext(),"5");
                 }
                 else if(position==1){
-                    Intent intent=new Intent(container.getContext(),alphaCanvasActivity.class);
-                    container.getContext().startActivity(intent);
+
                 }
             }
         });
@@ -89,4 +112,40 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         packs.setText(item.getPack());
     }
 
+    public void getPack(final Context context, final String num){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+
+                                Toast.makeText(context, obj.getString("symbols"), Toast.LENGTH_SHORT).show();
+
+                                //getting the user from the response
+                                context.startActivity(new Intent(context, alphaCanvasActivity.class));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id", "1");
+                params.put("number", num);
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(context).addToRequestQueue(stringRequest);
+    }
 }
