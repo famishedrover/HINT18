@@ -74,13 +74,14 @@
                   Weekest Alphabets 
                 </a>
               </li>
-              <!--
+              
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#radar">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                   Reports
                 </a>
               </li>
+              <!--
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
@@ -176,6 +177,12 @@ margin-bottom: 7%;"><h1>Comparison between letters </h1></div>
   margin:auto;
   background-color: gold ; "></div>
   <div style="margin-bottom: 20% ; "> </div>
+
+  <!--  ***************** -->
+
+   <div id="radar" style="margin-top: -15%;"><h1> Comparison between various parameters : </h1></div>
+  <canvas id="RadarChart" style="display: block ; height: 250px ; width: 512px ; background-color: white;"></canvas>
+
       </main>
   </div>
 </div>
@@ -527,6 +534,39 @@ L.marker([20, 70]).addTo(map)
   
   
 });
+</script>
+
+<!--  RADAR CHART  -->
+
+<script>
+  var ctx = document.getElementById("RadarChart").getContext('2d');
+  var myRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+    labels: ['Strokes', 'Alphabets', 'Words', 'Delay' , 'Time'],
+    datasets: [{
+      label: 'Student 1',
+        data: [50, 50, 40, 70 , 55] , 
+         backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+               
+            ],
+            borderWidth: 1
+     }] 
+    
+    },
+    options: {
+         scale: {
+        // Hides the scale
+        display: true
+    }
+    }
+});
+
 </script>
 
 </body>
