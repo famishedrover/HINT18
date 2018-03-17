@@ -5,147 +5,69 @@ from django.db import models
 # Create your models here.
 
 class child_model(models.Model):
-	id=models.AutoField(default=0,primary_key=True)
+	id=models.AutoField(primary_key=True)
 	name=models.CharField(max_length=50)
 	age=models.IntegerField()
 	total_evaluations=models.IntegerField(default=0)
 	score=models.IntegerField(default=100)
+	evaluationA=models.IntegerField(default=0)
+	evaluationB=models.IntegerField(default=0)
+	evaluationC=models.IntegerField(default=0)
+	evaluationD=models.IntegerField(default=0)
+	evaluationE=models.IntegerField(default=0)
+	evaluationF=models.IntegerField(default=0)
+	evaluationG=models.IntegerField(default=0)
+	evaluationH=models.IntegerField(default=0)
+	evaluationI=models.IntegerField(default=0)
+	evaluationJ=models.IntegerField(default=0)
+	evaluationK=models.IntegerField(default=0)
+	evaluationL=models.IntegerField(default=0)
+	evaluationM=models.IntegerField(default=0)
+	evaluationN=models.IntegerField(default=0)
+	evaluationO=models.IntegerField(default=0)
+	evaluationP=models.IntegerField(default=0)
+	evaluationQ=models.IntegerField(default=0)
+	evaluationR=models.IntegerField(default=0)
+	evaluationS=models.IntegerField(default=0)
+	evaluationT=models.IntegerField(default=0)
+	evaluationU=models.IntegerField(default=0)
+	evaluationV=models.IntegerField(default=0)
+	evaluationW=models.IntegerField(default=0)
+	evaluationX=models.IntegerField(default=0)
+	evaluationY=models.IntegerField(default=0)
+	evaluationZ=models.IntegerField(default=0)
+	A=models.IntegerField(default=100)
+	B=models.IntegerField(default=100)
+	C=models.IntegerField(default=100)
+	D=models.IntegerField(default=100)
+	E=models.IntegerField(default=100)
+	F=models.IntegerField(default=100)
+	G=models.IntegerField(default=100)
+	H=models.IntegerField(default=100)
+	I=models.IntegerField(default=100)
+	J=models.IntegerField(default=100)
+	K=models.IntegerField(default=100)
+	L=models.IntegerField(default=100)
+	M=models.IntegerField(default=100)
+	N=models.IntegerField(default=100)
+	O=models.IntegerField(default=100)
+	P=models.IntegerField(default=100)
+	Q=models.IntegerField(default=100)
+	R=models.IntegerField(default=100)
+	S=models.IntegerField(default=100)
+	T=models.IntegerField(default=100)
+	U=models.IntegerField(default=100)
+	V=models.IntegerField(default=100)
+	W=models.IntegerField(default=100)
+	X=models.IntegerField(default=100)
+	Y=models.IntegerField(default=100)
+	Z=models.IntegerField(default=100)
 
 class parent_model(models.Model):
-	id=models.AutoField(default=0,primary_key=True)
+	id=models.AutoField(primary_key=True)
 	name=models.CharField(max_length=50)
 	child_id=models.IntegerField()
-	A=models.IntegerField()
-	B=models.IntegerField()
-	C=models.IntegerField()
-	D=models.IntegerField()
-	E=models.IntegerField()
-	F=models.IntegerField()
-	G=models.IntegerField()
-	H=models.IntegerField()
-	I=models.IntegerField()
-	J=models.IntegerField()
-	K=models.IntegerField()
-	L=models.IntegerField()
-	M=models.IntegerField()
-	N=models.IntegerField()
-	O=models.IntegerField()
-	P=models.IntegerField()
-	Q=models.IntegerField()
-	R=models.IntegerField()
-	S=models.IntegerField()
-	T=models.IntegerField()
-	U=models.IntegerField()
-	V=models.IntegerField()
-	W=models.IntegerField()
-	X=models.IntegerField()
-	Y=models.IntegerField()
-	Z=models.IntegerField()
-
-# class A_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class B_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class C_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class D_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class E_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class F_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class G_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class H_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class I_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class J_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class K_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class L_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class M_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class N_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class O_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class P_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class Q_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class R_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class S_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class T_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class U_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class V_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class W_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class X_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class Y_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
-# class Z_values(models.Model):
-# 	child_id=models.IntegerField()
-# 	score=models.IntegerField()
-
+	
 #Keyed by evaluation no and child_id
 class A_transactions(models.Model):
 	child_id=models.IntegerField()

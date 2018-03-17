@@ -1,0 +1,54 @@
+def g1(x):
+	return x.evaluationA
+def g2(x):
+	return x.evaluationB
+def g3(x):
+	return x.evaluationC
+def g4(x):
+	return x.evaluationD
+def g5(x):
+	return x.evaluationE
+def g6(x):
+	return x.evaluationF
+def g7(x):
+	return x.evaluationG
+def g8(x):
+	return x.evaluationH
+def g9(x):
+	return x.evaluationI
+def g10(x):
+	return x.evaluationJ
+def g11(x):
+	return x.evaluationK
+def g12(x):
+	return x.evaluationL
+def g13(x):
+	return x.evaluationM
+def g14(x):
+	return x.evaluationN
+def g15(x):
+	return x.evaluationO
+def g16(x):
+	return x.evaluationP
+def g17(x):
+	return x.evaluationQ
+def g18(x):
+	return x.evaluationR
+def g19(x):
+	return x.evaluationS
+def g20(x):
+	return x.evaluationT
+def g21(x):
+	return x.evaluationU
+def g22(x):
+	return x.evaluationV
+def g23(x):
+	return x.evaluationW
+def g24(x):
+	return x.evaluationX
+def g25(x):
+	return x.evaluationY
+def g26(x):
+	return x.evaluationZ
+
+	
