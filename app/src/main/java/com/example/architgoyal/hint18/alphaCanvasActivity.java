@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
     public TextView alp_image;
     public int i=0;
     public TextToSpeech tts;
+    private MyDrawView myDrawView;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
 
@@ -49,7 +51,8 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
         speakOut();
         //CharacterList.list.remove(0);
 
-        final MyDrawView myDrawView = new MyDrawView(this);
+        myDrawView = new MyDrawView(this);
+        TimeList.list.clear();
         draw_area.addView(myDrawView);
         //draw_area.setDrawingCacheEnabled(true);
 
@@ -57,8 +60,9 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
             @Override
             public void onClick(View v) {
                 draw_area.removeAllViews();
-                MyDrawView myDrawView1=new MyDrawView(alphaCanvasActivity.this);
-                draw_area.addView(myDrawView1);
+                myDrawView=new MyDrawView(alphaCanvasActivity.this);
+                TimeList.list.clear();
+                draw_area.addView(myDrawView);
                 //draw_area.setDrawingCacheEnabled(true);
                 //drawn_image=null;
             }
@@ -66,6 +70,12 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TimeList.list.add(String.valueOf(myDrawView.endTime-myDrawView.sstartTime));
+
+                for(int i=0;i<TimeList.list.size();i++){
+                    Log.v("GOY","ss"+TimeList.list.get(i)+"xx");
+                }
 
                 draw_area.setDrawingCacheEnabled(true);
                 Bitmap drawn_image = draw_area.getDrawingCache();
@@ -91,8 +101,9 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
                 }
 
                 draw_area.removeAllViews();
-                MyDrawView myDrawView1=new MyDrawView(alphaCanvasActivity.this);
-                draw_area.addView(myDrawView1);
+                myDrawView=new MyDrawView(alphaCanvasActivity.this);
+                TimeList.list.clear();
+                draw_area.addView(myDrawView);
                 draw_area.setDrawingCacheEnabled(false);
                 //drawn_image=null;
             }
@@ -134,5 +145,9 @@ public class alphaCanvasActivity extends AppCompatActivity implements TextToSpee
         String text = alp_image.getText().toString();
 
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    void measureTime(MyDrawView drawView){
+
     }
 }

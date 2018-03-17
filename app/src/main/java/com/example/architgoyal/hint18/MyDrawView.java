@@ -20,6 +20,10 @@ public class MyDrawView extends View {
     private Path mPath;
     private Paint mBitmapPaint;
     private Paint mPaint;
+    private long startTime;
+    public long endTime;
+    public long sstartTime;
+    private int flag=0;
 
     public MyDrawView(Context c) {
         super(c);
@@ -59,6 +63,14 @@ public class MyDrawView extends View {
         mPath.moveTo(x, y);
         mX = x;
         mY = y;
+        if(flag==0){
+            sstartTime=System.currentTimeMillis();
+            startTime=sstartTime;
+            flag=1;
+        }
+        else{
+            startTime=System.currentTimeMillis();
+        }
     }
 
     private void touch_move(float x, float y) {
@@ -77,6 +89,8 @@ public class MyDrawView extends View {
         mCanvas.drawPath(mPath, mPaint);
         // kill this so we don't double draw
         mPath.reset();
+        endTime = System.currentTimeMillis();
+        TimeList.list.add(String.valueOf((endTime-startTime)));
     }
 
     @Override
