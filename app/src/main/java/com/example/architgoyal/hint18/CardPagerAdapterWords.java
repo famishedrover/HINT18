@@ -74,6 +74,14 @@ public class CardPagerAdapterWords extends PagerAdapter implements CardAdapter {
                     Intent intent=new Intent(container.getContext(),wordsCanvasActivity.class);
                     container.getContext().startActivity(intent);
                 }
+                else if(position==2){
+                    Intent intent=new Intent(container.getContext(),wordsCanvasActivity.class);
+                    container.getContext().startActivity(intent);
+                }
+                else if(position==3){
+                    Intent intent=new Intent(container.getContext(),wordsCanvasActivity.class);
+                    container.getContext().startActivity(intent);
+                }
             }
         });
         mViews.set(position, cardView);
