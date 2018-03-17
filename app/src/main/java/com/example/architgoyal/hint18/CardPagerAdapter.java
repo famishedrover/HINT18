@@ -83,6 +83,7 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
             public void onClick(View v) {
                 JSONObject jobj=new JSONObject();
                 if(position==0){
+                    CharacterList.list=null;
                     try {
                         jobj.put("id","1");
                         jobj.put("number","5");
@@ -91,9 +92,28 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
                     }
                 }
                 else if(position==1){
+                    CharacterList.list=null;
                     try {
                         jobj.put("id","1");
                         jobj.put("number","10");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else if(position==2){
+                    CharacterList.list=null;
+                    try {
+                        jobj.put("id","1");
+                        jobj.put("number","15");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else if(position==3){
+                    CharacterList.list=null;
+                    try {
+                        jobj.put("id","1");
+                        jobj.put("number","20");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
