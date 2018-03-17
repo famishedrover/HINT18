@@ -75,18 +75,17 @@ def preprocess():
 error_message=' Incomplete Data Provided '
 
 class LetterView(generic.View):
+	# Sends {'symbols':[['A',0],['B',1],['C',3],['D',1],['E',1]]}
 	def get(self,request,*args,**kwargs):
 		return HttpResponse("<html><b>Get Request to Letter View</b></html>")
 	@method_decorator(csrf_exempt)
 	def dispatch(self,request,*args,**kwargs):
 		return generic.View.dispatch(self, request, *args, **kwargs)
 	def post(self,request,*args,**kwargs):
-		print "Sending"
-		# return HttpResponse(error_message)
+		print repr(self.request.body),type(self.request.body)
 		received_dict=json.loads(self.request.body)
+		print received_dict
 		if 'id' and 'number' in received_dict:
-			print '*'*10
-			print received_dict
 			child_id=int(received_dict['id'])
 			required_number=int(received_dict['number'])
 			child_entry=child_model.objects.get(id=child_id)
@@ -97,13 +96,14 @@ class LetterView(generic.View):
 				curr_score=curr_function(child_entry)
 				curr_eval_func=evaulation_funcs_list[i]
 				last_eval=curr_eval_func(child_entry)
-				candidate_symbols.append((curr_score,curr_letter,last_eval))
+				curr_cluster_score=((clusters_values[i]['straight']*weights['straight']+clusters_values[i]['slant']*weights['slant']+clusters_values[i]['curved']*weights['curved'])*100)/18;
+				alpha=70
+				candidate_symbols.append((curr_score*alpha+curr_cluster_score*(1-alpha),curr_letter,last_eval))
 			candidate_symbols=sorted(candidate_symbols,key=lambda x:-x[0])
 			for i in xrange(required_number):
 				candidate_symbols[i]=[candidate_symbols[i][1],candidate_symbols[i][2]]
-			print child_id,required_number
-			print json.dumps({'symbols':candidate_symbols[:required_number]}),type(json.dumps({'symbols':candidate_symbols[:required_number]}))
-			return HttpResponse(json.dumps({'symbols':candidate_symbols[:required_number]}))
+			R=HttpResponse(json.dumps({'symbols':candidate_symbols[:required_number]}))
+			return R
 		else:
 			return HttpResponse(error_message)
 
@@ -117,7 +117,7 @@ class LetterResponse(generic.View):
 		preprocess()
 		# returns [child_id,eval_no,letter,score(I will calculate ),total_time,no_of_strokes,total_length=0->default,time delay,image]
 		received_dict=json.loads(self.request.body)
-		if 'image' and 'child_id' and 'eval_no' and 'letter' and 'score' and 'total_time' and 'no_of_strokes' and 'total_length' and 'time_delay' in received_dict:
+		if 'Image' and 'child_id' and 'eval_no' and 'letter' and 'score' and 'total_time' and 'no_of_strokes' and 'total_length' and 'time_delay' in received_dict:
 			# find score from ML model 
 			# The compute main score 
 			# Also compute difficulty as sum of clusters that it belongs to 
