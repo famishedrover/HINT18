@@ -17,7 +17,13 @@
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
   integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
   crossorigin=""></script>
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 
 </head>
 <body>
@@ -55,12 +61,13 @@
                   Map of students
                 </a>
               </li>
-            <!--  <li class="nav-item">
-                <a class="nav-link" href="#">
+             <li class="nav-item">
+                <a class="nav-link" href="#vis">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  Customers
+                  Weekest Alphabets 
                 </a>
               </li>
+              <!--
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
@@ -152,7 +159,15 @@ margin-bottom: 7%;"><h1>Comparison between letters </h1></div>
   <div id="students" style="margin-top: 7% ;"><h1>Students : </h1></div>
   <div id="map" style="width: 800px; height: 500px ; margin-top: 5% ; margin-bottom: 8% ; "> </div>
 
-        </main>
+
+<!--         ******************          -->
+
+  <div id="vis" style="margin-top: 7% ;"><h1>Weekest Alphabets for each student : </h1></div>
+  <div id="graph" style=" width:900px;
+  height:80vh;
+  margin:auto;"></div>
+
+      </main>
   </div>
 </div>
 
@@ -310,6 +325,196 @@ L.marker([20, 70]).addTo(map)
     .bindPopup('Sagarpreet <br> Lancers Convent School')
     
 
+</script>
+
+
+<!--  VIS - GRAPH  -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+  
+  var Data = {
+    nodes: [
+{
+  id: 1, 
+  shape: 'image',
+  image: 'https://sagarpreet-chadha.github.io/MLH.png',
+  label: 'Sagarpreet'
+},
+{
+  id: 2,
+  shape: 'image',
+  image: 'http://pngimg.com/uploads/letter_a/letter_a_PNG23.png' 
+},
+{
+  id: 3,
+  shape: 'image' ,
+  image: 'http://webiconspng.com/wp-content/uploads/2017/09/B-PNG-Image-95133.png'
+},
+{
+  id: 4,
+  shape: 'image' ,
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/c-character-alphabet-letter-33a1c5cbc88392b9-512x512.png'
+},
+
+{
+  id: 5,
+  shape: 'image',
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/e-character-alphabet-letter-3b578be7ab495241-512x512.png'
+},
+{
+  id: 6,
+  shape: 'image',
+  image: 'http://pngimg.com/uploads/letter_a/letter_a_PNG23.png' 
+},
+{
+  id: 7,
+  shape: 'image' ,
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/s-character-alphabet-letter-3076c5c4f2f01a4b-512x512.png'
+},
+{
+  id: 8,
+  shape: 'image' ,
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-256/z-character-alphabet-letter-387e4ca6066b1e08-256x256.png'
+},
+{
+  id: 9, 
+  shape: 'image', 
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/g-character-alphabet-letter-3d1784d33d9fa2a0-512x512.png'
+},
+{
+  id: 10,
+  shape: 'circle',
+  label: 'SBI MultiCap Fund'
+},
+{
+  id: 11,
+  shape: 'circle' ,
+  label: 'SBI Contra-Fund'
+},
+{
+  id: 12,
+   shape: 'image',
+  image: 'http://pngimg.com/uploads/letter_a/letter_a_PNG23.png'   
+},
+{
+  id: 13,
+  shape: 'image',
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/g-character-alphabet-letter-3d1784d33d9fa2a0-512x512.png'
+},
+{
+  id: 14,
+  shape: 'image',
+  image: 'http://webiconspng.com/wp-content/uploads/2017/09/B-PNG-Image-95133.png'
+},
+{
+  id: 15,
+  shape: 'image',
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/e-character-alphabet-letter-3b578be7ab495241-512x512.png'
+},
+{
+  id: 16,
+  shape: 'circle',
+  label: 'SBI Global Fund'
+},
+{
+  id: 17,
+  shape: 'image',
+  image: 'http://pngimg.com/uploads/letter_a/letter_a_PNG23.png' 
+},
+{
+  id: 18,
+  shape: 'image' ,
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/c-character-alphabet-letter-33a1c5cbc88392b9-512x512.png'
+},
+{
+  id: 19,
+  shape: 'image' ,
+  image: 'https://cdn.iconscout.com/public/images/icon/free/png-512/e-character-alphabet-letter-3b578be7ab495241-512x512.png'
+},
+{
+  id: 20,
+  shape: 'image' ,
+  image: 'http://webiconspng.com/wp-content/uploads/2017/09/B-PNG-Image-95133.png'
+},
+    ],
+    edges: [
+      {from: 1, to: 2},
+      {from: 1, to: 3},
+      {from: 1, to: 4},
+      {from: 1, to: 5},
+      
+      {from: 10, to: 6},
+      {from: 10, to: 7},
+      {from: 10, to: 8},
+      {from: 10, to: 9},
+      
+     
+      {from: 11, to: 12},
+      {from: 11, to: 13},
+      {from: 11, to: 14},
+      {from: 11, to: 15},
+
+      {from: 16, to: 17},
+      {from: 16, to: 18},
+      {from: 16, to: 19} ,
+      {from: 16, to: 20}
+    ]
+  }
+  
+
+ 
+  
+  var parsed = $.getJSON('https://sagarpreet-chadha.github.io/nodesedges.json', function(data) {
+   var container = document.querySelector('#graph');
+   
+    // var options = {
+    //  nodes: data.options.nodes , 
+    //  edges: data.options.edges
+    // }
+    var options = {
+    nodes: {
+      borderWidth:0,
+      size:42,
+      color: {
+        border: '#222',
+        background: '#ecfed8'
+      },
+      font: {
+        color: '#111',
+        face: 'Walter Turncoat',
+        size: 16,
+        strokeWidth: 1,
+        strokeColor: '#222'
+      }
+    },
+    edges: {
+      color: {
+        color: '#CCC',
+        highlight: '#A22'
+      },
+      width: 1,
+      length: 275,
+      hoverWidth: .05
+    }
+  }
+    // console.log(options) ;
+   //     var Data = {
+    //    nodes: data.nodes,
+    //   edged: data.edges
+
+      // };
+
+
+  var network = new vis.Network(container, Data, options);
+    });
+  
+
+ // var parsed = vis.network.convertGephi(gephiJSON, options);
+  
+  
+});
 </script>
 
 </body>
