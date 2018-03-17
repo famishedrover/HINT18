@@ -6,11 +6,7 @@ from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
-import json 
-import requests
-import random
-import base64
-import io
+import json ,requests,random,base64,io,datetime,cv2,numpy
 
 from models import *
 from letter_funcs import *
@@ -57,7 +53,6 @@ weights ={
 	'curved':3,
 }
 
-
 clusters={
 	'straight':[],
 	'slant':[],
@@ -82,9 +77,10 @@ class LetterView(generic.View):
 	def dispatch(self,request,*args,**kwargs):
 		return generic.View.dispatch(self, request, *args, **kwargs)
 	def post(self,request,*args,**kwargs):
-		print repr(self.request.body),type(self.request.body)
+		print "YAHAAN"
+		# print repr(self.request.body),type(self.request.body)
 		received_dict=json.loads(self.request.body)
-		print received_dict
+		# print received_dict
 		if 'id' and 'number' in received_dict:
 			child_id=int(received_dict['id'])
 			required_number=int(received_dict['number'])
@@ -117,13 +113,26 @@ class LetterResponse(generic.View):
 		preprocess()
 		# returns [child_id,eval_no,letter,score(I will calculate ),total_time,no_of_strokes,total_length=0->default,time delay,image]
 		received_dict=json.loads(self.request.body)
+		
+		# print '*'*100
+		# print received_dict.keys()
+		
 		if 'Image' and 'child_id' and 'eval_no' and 'letter' and 'score' and 'total_time' and 'no_of_strokes' and 'total_length' and 'time_delay' in received_dict:
+			img=received_dict['Image']
+			img=base64.b64decode(img)
+			filenn='canvas'+str(datetime.datetime.now())+".png"
+			# filenn='canvas'+".png"
+			with open(filenn,'wb') as ff:
+				ff.write(img)	
+			npimage = cv2.imread(filenn)
+			npimage = cv2.cvtColor(npimage,cv2.COLOR_BGR2GRAY)
+			print npimage.shape
 			# find score from ML model 
 			# The compute main score 
 			# Also compute difficulty as sum of clusters that it belongs to 
 			# Take weighted avg to get new score of both the letter and the clusters
 
-			return HttpResponse(' No error ')
+			return HttpResponse(' Sahi aa raha hai  ')
 		else:
 			return HttpResponse(error_message)
 
