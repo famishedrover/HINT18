@@ -5,5 +5,6 @@ urlpatterns=[
 	url(r'^letter',views.LetterView.as_view()),
 	url(r'^response',views.LetterResponse.as_view()),
 	url(r'^word',views.WordView.as_view()),
+	url(r'^wresponse',views.WordResp.as_view()),
 	url(r'^analytics',views.AnalyticsView.as_view()),
 ]

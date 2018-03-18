@@ -51,4 +51,59 @@ def f25(x):
 def f26(x):
 	return x.Z
 
+def s1(x,val):
+	x.A=val
+def s2(x,val):
+	x.B=val
+def s3(x,val):
+	x.C=val
+def s4(x,val):
+	x.D=val
+def s5(x,val):
+	x.E=val
+def s6(x,val):
+	x.F=val
+def s7(x,val):
+	x.G=val
+def s8(x,val):
+	x.H=val
+def s9(x,val):
+	x.I=val
+def s10(x,val):
+	x.J=val
+def s11(x,val):
+	x.K=val
+def s12(x,val):
+	x.L=val
+def s13(x,val):
+	x.M=val
+def s14(x,val):
+	x.N=val
+def s15(x,val):
+	x.O=val
+def s16(x,val):
+	x.P=val
+def s17(x,val):
+	x.Q=val
+def s18(x,val):
+	x.R=val
+def s19(x,val):
+	x.S=val
+def s20(x,val):
+	x.T=val
+def s21(x,val):
+	x.U=val
+def s22(x,val):
+	x.V=val
+def s23(x,val):
+	x.W=val
+def s24(x,val):
+	x.X=val
+def s25(x,val):
+	x.Y=val
+def s26(x,val):
+	x.Z=val
+
+	
+
 	
