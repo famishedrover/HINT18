@@ -47,6 +47,7 @@ To bridge the gap between educational content and students which arises due to  
 #### OBJECTIVES :
 
 A. To make sure that no child lags behind and to protect this important human resource.
+
 B. To make sure that there is no categorisation of differently abled children and the identification and tackling of their issues remains efficient.
 
 ## LINK TO : 
