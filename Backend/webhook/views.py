@@ -359,6 +359,11 @@ class AnalyticsView(generic.View):
 	def dispatch(self,request,*args,**kwargs):
 		return generic.View.dispatch(self, request, *args, **kwargs)
 	def post(self,request,*args,**kwargs):
+		received_dict=json.loads(self.request.body)
+		id=received_dict['id']
+		given_letter=received_dict['letter']
+		print id,given_letter
+		transactions=transactions_list[ord(given_letter)-ord('A')].objects.filter(child_id=id)
 		return HttpResponse("<html><b>Post Request to Analytics View</b></html>")
 
 
