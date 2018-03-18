@@ -42,11 +42,16 @@ To bridge the gap between educational content and students which arises due to  
 
 #### FLOW DIAGRAM :
 
-
+![alt text](http://hint.wildcards.tech/chart.png "CHART")
 
 #### OBJECTIVES :
 
 A. To make sure that no child lags behind and to protect this important human resource.
 B. To make sure that there is no categorisation of differently abled children and the identification and tackling of their issues remains efficient.
 
+## LINK TO : 
+
+### Youtube video : https://www.youtube.com/watch?v=Rqj8XNejj20&feature=youtu.be
+### Github repo : Check here the 3 branches for Android App , Website and AI model . 
+### Website Link : http://hint.wildcards.tech/
 
